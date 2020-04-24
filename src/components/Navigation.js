@@ -33,6 +33,7 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" className={classes.title}>
                         Small Business
                     </Typography>
+                    <Link to="/"><Button color="inherit">Listing</Button></Link>
                     <Link to="/login"><Button color="inherit">Login</Button></Link>
                 </Toolbar>
             </AppBar>

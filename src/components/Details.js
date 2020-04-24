@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 const rows = [
   {
     id: 1,
@@ -21,6 +23,7 @@ const Details = props => {
     <h4>{business.hours}</h4>
     <p>{business.description}</p>
     <p>MAP GOES HERE!</p>
+    <Link to='/'>Back</Link>
     </>
   )
 }
