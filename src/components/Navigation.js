@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
     const classes = useStyles();
 
     return (
@@ -34,7 +34,13 @@ export default function ButtonAppBar() {
                         Small Business
                     </Typography>
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
-                    <Link to="/login"><Button color="inherit">Login</Button></Link>
+                    {
+                        props.isLoggedIn ? (
+                            <Link to="/"><Button color="inherit">Logout</Button></Link>
+                        ) : (
+                            <Link to="/login"><Button color="inherit">Login</Button></Link>
+                        )
+                    }
                 </Toolbar>
             </AppBar>
         </div>
