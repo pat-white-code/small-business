@@ -10,3 +10,10 @@ export const logout = () => {
     type: 'LOGS_OUT'
   }
 }
+
+export const addBusiness = business => {
+  return {
+    type: 'ADDS_BUSINESS',
+    payload: business
+  }
+}

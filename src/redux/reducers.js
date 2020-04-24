@@ -13,7 +13,7 @@ const isLoggedIn = (state = null, action) => {
 
 const businesses = (state = [], action) => {
   switch(action.type) {
-    case 'ADD_BUSINESS':
+    case 'ADDS_BUSINESS':
       return [...state, action.payload]
     default: 
       return state

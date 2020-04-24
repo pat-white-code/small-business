@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router';
 import Listing from './containers/Listing';
 import Details from './components/Details';
 import Login from './containers/Login';
+import Add from './containers/Add';
 
 const Router = () => {
     return (
@@ -10,6 +11,7 @@ const Router = () => {
             <Route exact path="/" component={Listing} />
             <Route path="/details/:id" component={Details} />
             <Route path="/login" component={Login} />
+            <Route path="/add" component={Add} />
         </Switch>
     );
 };
