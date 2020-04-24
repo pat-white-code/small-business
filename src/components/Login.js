@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
 
   return (
     <Container className={classes.container}>
       <Typography variant='h3'>Login</Typography>
-      <form className={classes.root} noValidate autoComplete="off">
+      <form onSubmit={()=>{props.login()}} className={classes.root} noValidate autoComplete="off">
         <TextField id="username" label="Username" required />
         <TextField id="password" label="Password" required />
         <Button className={classes.button}>Submit</Button>

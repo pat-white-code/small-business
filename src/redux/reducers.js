@@ -1,17 +1,17 @@
 import { combineReducers } from "redux";
 
-const isLoggedInReducer = (state = [], action) => {
+const isLoggedIn = (state = false, action) => {
   switch(action.type){
     case 'LOGS_IN':
-      return {...state, isLoggedIn: true}
+      return {isLoggedIn: true}
     case 'LOGS_OUT':
-      return {...state, isLoggedIn: false}
+      return {isLoggedIn: false}
 
     default: return state;
   }
 };
 
-const businessesReducer = (state = [], action) => {
+const businesses = (state = [], action) => {
   switch(action.type) {
     case 'ADD_BUSINESS':
       return [...state, action.payload]
@@ -20,4 +20,4 @@ const businessesReducer = (state = [], action) => {
   }
 }
 
-export default combineReducers({ isLoggedIn: isLoggedInReducer, businesses: businessesReducer });
+export default combineReducers({ isLoggedIn, businesses });
