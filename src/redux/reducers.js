@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-const isLoggedIn = (state = false, action) => {
+const isLoggedIn = (state = null, action) => {
   switch(action.type){
     case 'LOGS_IN':
-      return {isLoggedIn: true}
+      return {...state, isLoggedIn: true}
     case 'LOGS_OUT':
-      return {isLoggedIn: false}
+      return {...state, isLoggedIn: false}
 
     default: return state;
   }
