@@ -4,3 +4,9 @@ export const login = (e) => {
     type: 'LOGS_IN'
   }
 }
+
+export const logout = () => {
+  return {
+    type: 'LOGS_OUT'
+  }
+}
