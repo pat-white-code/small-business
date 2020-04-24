@@ -15,17 +15,6 @@ const useStyles = makeStyles({
   },
 });
 
-  const rows = [
-  {
-    id: 1,
-    name: 'Radio Coffee & Beer',
-    address: '4204 Menchaca Rd, Austin, TX 78704',
-    description: 'Hip spot for coffee, beer & pastries in wood-paneled digs, plus tables & a taco truck out back.',
-    hours: '10 AM - 12AM',
-    website: 'https://www.radiocoffeeandbeer.com/'
-  }
-]
-
 export default function Listing(props) {
   const classes = useStyles();
 
@@ -44,12 +33,12 @@ export default function Listing(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row"><Link to={`/details/${row.id}`} > {row.name} </Link> </TableCell>
-              <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">{row.hours}</TableCell>
-              <TableCell align="right">{row.address}</TableCell>
+          {props.businesses.map((business) => (
+            <TableRow key={business.id}>
+              <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
+              <TableCell align="right">{business.description}</TableCell>
+              <TableCell align="right">{business.hours}</TableCell>
+              <TableCell align="right">{business.address}</TableCell>
               {props.isLoggedIn &&
                 <TableCell align="center">DELETE</TableCell>
               }

@@ -11,4 +11,13 @@ const isLoggedInReducer = (state = [], action) => {
   }
 };
 
-export default combineReducers({ isLoggedIn: isLoggedInReducer });
+const businessesReducer = (state = [], action) => {
+  switch(action.type) {
+    case 'ADD_BUSINESS':
+      return [...state, action.payload]
+    default: 
+      return state
+  }
+}
+
+export default combineReducers({ isLoggedIn: isLoggedInReducer, businesses: businessesReducer });

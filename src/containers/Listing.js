@@ -3,7 +3,8 @@ import Listing from '../components/Listing';
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    businesses: state.businesses
   }
 }
 
