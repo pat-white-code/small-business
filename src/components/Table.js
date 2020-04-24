@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   table: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const rows = [
+  const rows = [
   {
     id: 1,
     name: 'Radio Coffee & Beer',
@@ -42,7 +43,7 @@ export default function SimpleTable() {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell component="th" scope="row"> {row.name} </TableCell>
+              <TableCell component="th" scope="row"><Link to={`/details/${row.id}`} > {row.name} </Link> </TableCell>
               <TableCell align="right">{row.description}</TableCell>
               <TableCell align="right">{row.hours}</TableCell>
               <TableCell align="right">{row.address}</TableCell>
