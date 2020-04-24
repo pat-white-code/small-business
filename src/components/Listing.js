@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   }
 ]
 
-export default function Listing() {
+export default function Listing(props) {
   const classes = useStyles();
 
   return (
@@ -38,6 +38,9 @@ export default function Listing() {
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">Hours</TableCell>
             <TableCell align="center">Address</TableCell>
+            {props.isLoggedIn &&
+              <TableCell align="center">Delete</TableCell>
+            }
           </TableRow>
         </TableHead>
         <TableBody>
@@ -47,6 +50,9 @@ export default function Listing() {
               <TableCell align="right">{row.description}</TableCell>
               <TableCell align="right">{row.hours}</TableCell>
               <TableCell align="right">{row.address}</TableCell>
+              {props.isLoggedIn &&
+                <TableCell align="center">DELETE</TableCell>
+              }
             </TableRow>
           ))}
         </TableBody>

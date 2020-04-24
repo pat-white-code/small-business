@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import Listing from './components/Listing';
+import Listing from './containers/Listing';
 import Details from './components/Details';
 import Login from './components/Login';
 
