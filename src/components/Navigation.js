@@ -40,7 +40,7 @@ export default function ButtonAppBar(props) {
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
                     {
                         props.isLoggedIn ? (
-                                    <Button onClick={props.logout}>LogOut</Button>
+                                    <Link to='/login'><Button color="inherit" onClick={props.logout}>logout</Button></Link>
                         ) : (
                             <Link to="/login"><Button color="inherit">Login</Button></Link>
                         )
