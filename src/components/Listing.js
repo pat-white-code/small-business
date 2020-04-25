@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -40,7 +41,9 @@ export default function Listing(props) {
               <TableCell align="right">{business.hours}</TableCell>
               <TableCell align="right">{business.address}</TableCell>
               {props.isLoggedIn &&
-                <TableCell align="center">DELETE</TableCell>
+                <TableCell align="center">
+                  <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>
+                </TableCell>
               }
             </TableRow>
           ))}

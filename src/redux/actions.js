@@ -18,3 +18,10 @@ export const addBusiness = business => {
     payload: business
   }
 }
+
+export const deleteBusiness = business => {
+  return {
+    type: 'DELETES_BUSINESS',
+    payload: business
+  }
+}

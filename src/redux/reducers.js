@@ -15,6 +15,8 @@ const businesses = (state = [], action) => {
   switch(action.type) {
     case 'ADDS_BUSINESS':
       return [...state, action.payload]
+    case 'DELETES_BUSINESS':
+      return state.filter(business => business.id !== action.payload.id)
     default: 
       return state
   }
