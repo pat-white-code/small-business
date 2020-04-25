@@ -34,7 +34,7 @@ export default function Listing(props) {
         </TableHead>
         <TableBody>
           {props.businesses.map((business, index) => (
-            <TableRow key={index}>
+            <TableRow key={business.id}>
               <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
               <TableCell align="right">{business.description}</TableCell>
               <TableCell align="right">{business.hours}</TableCell>

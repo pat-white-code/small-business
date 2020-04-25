@@ -1,20 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const rows = [
-  {
-    id: 1,
-    name: 'Radio Coffee & Beer',
-    address: '4204 Menchaca Rd, Austin, TX 78704',
-    description: 'Hip spot for coffee, beer & pastries in wood-paneled digs, plus tables & a taco truck out back.',
-    hours: '10 AM - 12AM',
-    website: 'https://www.radiocoffeeandbeer.com/'
-  }
-]
-
 const Details = props => {
   let id = props.match.params.id;
-  let business = rows.filter(business => business.id === parseInt(id))[0]
+  console.log('props.match.params.id:__ ',id)
+  let business = props.businesses.filter(business => business.id === parseInt(id))[0]
 
   return (
     <>

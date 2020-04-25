@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import Listing from './containers/Listing';
-import Details from './components/Details';
+import Details from './containers/Details';
 import Login from './containers/Login';
 import Add from './containers/Add';
 

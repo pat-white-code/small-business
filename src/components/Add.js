@@ -6,7 +6,8 @@ class Add extends Component {
     name: '',
     address: '',
     hours: '',
-    description: ''
+    description: '',
+    id: this.props.businesses.length + 1
   }
   onFormChange = e => {
     this.setState({
