@@ -12,6 +12,8 @@ export const logout = () => {
 }
 
 export const addBusiness = business => {
+  // e.preventDefault();
+  console.log('BUSINESS', business)
   return {
     type: 'ADDS_BUSINESS',
     payload: business
