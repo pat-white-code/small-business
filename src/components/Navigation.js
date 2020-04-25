@@ -33,6 +33,10 @@ export default function ButtonAppBar(props) {
                     <Typography variant="h6" className={classes.title}>
                         Small Business
                     </Typography>
+                    {
+                        props.isLoggedIn && 
+                            <Button color="inherit"><Link to="/add">Add</Link></Button>
+                    }
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
                     {
                         props.isLoggedIn ? (
