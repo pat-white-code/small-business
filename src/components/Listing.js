@@ -12,15 +12,21 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 500,
+    maxWidth: 900
   },
+  container: {
+    paddingTop: 30,
+    display: 'flex',
+    justifyContent: 'center'
+  }
 });
 
 export default function Listing(props) {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer className={classes.container} component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -37,9 +43,9 @@ export default function Listing(props) {
           {props.businesses.map((business, index) => (
             <TableRow key={business.id}>
               <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
-              <TableCell align="right">{business.description}</TableCell>
-              <TableCell align="right">{business.hours}</TableCell>
-              <TableCell align="right">{business.address}</TableCell>
+              <TableCell align="center">{business.description}</TableCell>
+              <TableCell align="center">{business.hours}</TableCell>
+              <TableCell align="center">{business.address}</TableCell>
               {props.isLoggedIn &&
                 <TableCell align="center">
                   <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>

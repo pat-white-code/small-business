@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,6 +38,7 @@ export default function ButtonAppBar(props) {
                         props.isLoggedIn && 
                             <Button color="inherit"><Link to="/add">Add</Link></Button>
                     }
+                    <Modal />
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
                     {
                         props.isLoggedIn ? (

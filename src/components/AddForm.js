@@ -30,13 +30,13 @@ const AddForm = (props) => {
     <Container className={classes.container}>
       <Typography variant='h3'>Add Business</Typography>
       <form 
-        className={classes.root} noValidate autoComplete="off" >
+        className={classes.root} noValidate autoComplete="off" onSubmit={props.handleClose} >
 
         <TextField id="name" label="Name" onChange={props.onFormChange} />
         <TextField id="address" label="Address" onChange={props.onFormChange} />
         <TextField id="hours" label="Hours" onChange={props.onFormChange} />
         <TextField id="description" label="Description" onChange={props.onFormChange} />
-        <Button onClick={()=>props.addBusiness(props.parentState)} className={classes.button} >Save</Button>
+        <Button type="submit" onClick={()=>props.addBusiness(props.parentState)} className={classes.button} >Save</Button>
       </form>
     </Container>
   );

@@ -21,6 +21,7 @@ class Add extends Component {
         onFormChange={this.onFormChange}
         addBusiness={this.props.addBusiness}
         parentState={this.state}
+        handleClose={this.props.handleClose}
         />
     );
   }
