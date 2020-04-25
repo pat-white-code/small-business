@@ -30,7 +30,7 @@ const AddForm = (props) => {
     <Container className={classes.container}>
       <Typography variant='h3'>Add Business</Typography>
       <form 
-        className={classes.root} noValidate autoComplete="off">
+        className={classes.root} noValidate autoComplete="off" >
 
         <TextField id="name" label="Name" onChange={props.onFormChange} />
         <TextField id="address" label="Address" onChange={props.onFormChange} />
