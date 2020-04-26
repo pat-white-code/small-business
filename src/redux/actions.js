@@ -1,5 +1,6 @@
 export const login = (e) => {
   e.preventDefault()
+  // window.history.push('/');
   document.cookie = "loggedIn=true;max-age=60*1000";
   return {
     type: 'LOGS_IN'
