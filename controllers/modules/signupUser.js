@@ -6,7 +6,7 @@ const { handleSQLError } = require('../../sql/error');
 
 const saltRounds = 10
 
-const createUser = (req, res) => {
+const signupUser = (req, res) => {
   const { username, password } = req.body
   let sql = "INSERT INTO users (username, password) VALUES (?, ?)"
 
@@ -23,22 +23,5 @@ const createUser = (req, res) => {
   })
 }
 
-// const createUser = (req, res) => {
-//   let sql = `
-//     INSERT INTO users (
-//       username, password
-//     )
-//     VALUES
-//       (?, ?);`
-  
-//   let replacements = [req.body.username, req.body.password]
+module.exports = signupUser;
 
-//   sql = mysql.format(sql, replacements);
-  
-//   pool.query(sql, (err, results)=> {
-//     if(err){return res.status(500).send(err)}
-//     return res.status(201).send(`user created with id: ${results.insertId}`)
-//   })
-// }
-
-module.exports = createUser;
