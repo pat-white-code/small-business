@@ -12,6 +12,7 @@
     "cookie": "^0.4.1",
     "express": "^4.17.1",
     "google-map-react": "^1.1.7",
+    "mysql": "^2.18.1",
     "react": "^16.13.1",
     "react-cookies": "^0.1.1",
     "react-dom": "^16.13.1",
