@@ -1,3 +1,4 @@
+import axios from 'axios';
 // export const signup = async (user) => {
 //   () => {
 //     fetch('/users', {
@@ -8,6 +9,15 @@
 //     .then(string => dispatch({type: 'USER_CREATED', payload: string}))
 //   }
 // }
+
+export const userLogin = (user) => {
+  return (dispatch) => {
+      // dispatch(beginFetch())
+      axios.post('/', user)
+          .then(json => dispatch({type: 'USER_LOGS_IN', value: user}))
+          // .then(() => dispatch(fetchSuccess()))
+  }
+}
 
 export const login = (e) => {
   e.preventDefault()
