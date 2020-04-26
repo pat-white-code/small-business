@@ -24,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar(props) {
     const classes = useStyles();
 
+    const fetchPing = () => {
+        fetch('/ping')
+            .then(res => res.text())
+            .then(text => console.log(text));
+    }
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -39,6 +45,7 @@ export default function ButtonAppBar(props) {
                             <Button color="inherit"><Link to="/add">Add</Link></Button>
                     }
                     <Modal />
+                    <Button onClick={fetchPing}>Fetch</Button>
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
                     {
                         props.isLoggedIn ? (

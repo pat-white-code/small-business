@@ -2,6 +2,7 @@
   "name": "small-business",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@material-ui/core": "^4.9.11",
     "@material-ui/icons": "^4.9.1",
@@ -9,6 +10,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "cookie": "^0.4.1",
+    "express": "^4.17.1",
     "google-map-react": "^1.1.7",
     "react": "^16.13.1",
     "react-cookies": "^0.1.1",
