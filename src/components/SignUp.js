@@ -1,40 +1,61 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {Component} from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Container, Button, Typography } from '@material-ui/core';
+import axios from 'axios';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-      display: 'flex',
-      flexDirection: 'column',
-    },
-  },
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    padding: 50
-  },
-  button: {
-    width: '100%'
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& > *': {
+//       margin: theme.spacing(1),
+//       width: '25ch',
+//       display: 'flex',
+//       flexDirection: 'column',
+//     },
+//   },
+//   container: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     flexDirection: 'column',
+//     padding: 50
+//   },
+//   button: {
+//     width: '100%'
+//   }
+// }));
+
+export default class Signup extends Component {
+  state = {
+    username: '',
+    password: '',
   }
-}));
 
-export default function Login(props) {
-  const classes = useStyles();
+  handleChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
 
-  return (
-    <Container className={classes.container}>
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+
+  createUser = e => {
+    e.preventDefault();
+    console.log(this.state);
+    axios.post('/users', this.state)
+      .then(res => console.log(res))
+  }
+
+  render(){
+    return (
+      <Container>
       <Typography variant='h3'>Sign Up</Typography>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="username" label="Username" required />
-        <TextField id="password" label="Password" required />
-        <TextField id="confirm-password" label="Password" required />
-        <Button type="submit" className={classes.button}> Submit </Button>
+      <form noValidate autoComplete="off" onSubmit={this.createUser}>
+        <TextField id="username" label="Username" required onChange={this.handleChange} />
+        <TextField id="password" label="Password" required onChange={this.handleChange} />
+        <Button type="submit"> Submit </Button>
       </form>
     </Container>
-  );
+    )
+  }
 }

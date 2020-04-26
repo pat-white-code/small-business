@@ -1,3 +1,14 @@
+// export const signup = async (user) => {
+//   () => {
+//     fetch('/users', {
+//       method: 'POST',
+//       body: user
+//     })
+//     .then(res=> res.text())
+//     .then(string => dispatch({type: 'USER_CREATED', payload: string}))
+//   }
+// }
+
 export const login = (e) => {
   e.preventDefault()
   // window.history.push('/');

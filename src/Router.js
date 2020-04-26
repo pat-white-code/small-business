@@ -4,6 +4,7 @@ import Listing from './containers/Listing';
 import Details from './containers/Details';
 import Login from './containers/Login';
 import Add from './containers/Add';
+import Signup from './components/Signup';
 import cookie from 'cookie';
 
 const checkAuth = () => {
@@ -28,6 +29,7 @@ const Router = () => {
             <Route exact path="/" component={Listing} />
             <Route path="/details/:id" component={Details} />
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
             <ProtectedRoute path="/add" component={Add} />
         </Switch>
     );

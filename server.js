@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 // MIDDLEWARE
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 
 // SERVE APP
 app.get('/', function (req, res) {
