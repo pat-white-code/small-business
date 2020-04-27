@@ -4,7 +4,7 @@ const { handleSQLError } = require('../../../sql/error');
 
 const createUserBusiness = (req, res) => {
 
-  const {name, address, details, hours, userId} = req.body
+  const {name, address, details, hours} = req.body
 
   let sql = `
     INSERT INTO businesses 
@@ -12,7 +12,7 @@ const createUserBusiness = (req, res) => {
     VALUES 
       (?, ?, ?, ?, ?);`
 
-  let replacements = [name, userId, address, details, hours]
+  let replacements = [name, req.params.userId, address, details, hours]
 
   sql = mysql.format(sql, replacements);
   pool.query(sql, (err, results)=>{
