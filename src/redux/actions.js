@@ -1,14 +1,4 @@
 import axios from 'axios';
-// export const signup = async (user) => {
-//   () => {
-//     fetch('/users', {
-//       method: 'POST',
-//       body: user
-//     })
-//     .then(res=> res.text())
-//     .then(string => dispatch({type: 'USER_CREATED', payload: string}))
-//   }
-// }
 
 export const userLogin = (user) => {
   return (dispatch) => {
@@ -17,14 +7,15 @@ export const userLogin = (user) => {
       axios.post('/users/login', user)
           .then(json => {
             console.log(json)
-            dispatch({type: 'USER_LOGS_IN', value: json})})
+            document.cookie = "loggedIn=true;max-age=60*1000"
+            dispatch({type: 'LOGS_IN'})
+            dispatch({type: 'GETS_USER_ID', payload: json.data})})
           // .then(() => dispatch(fetchSuccess()))
   }
 }
 
 // export const login = (e) => {
 //   e.preventDefault()
-//   // window.history.push('/');
 //   document.cookie = "loggedIn=true;max-age=60*1000";
 //   return {
 //     type: 'LOGS_IN'

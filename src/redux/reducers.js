@@ -11,6 +11,15 @@ const isLoggedIn = (state = null, action) => {
   }
 };
 
+const userId = (state = null, action) => {
+  let newState = {...state}
+  switch(action.type) {
+    case 'GETS_USER_ID':
+      return newState.userId = action.payload.id
+    default: return state
+  }
+}
+
 const businesses = (state = [], action) => {
   switch(action.type) {
     case 'ADDS_BUSINESS':
@@ -22,4 +31,4 @@ const businesses = (state = [], action) => {
   }
 }
 
-export default combineReducers({ isLoggedIn, businesses });
+export default combineReducers({ isLoggedIn, businesses, userId });

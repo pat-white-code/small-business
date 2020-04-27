@@ -1,5 +1,6 @@
 const state = {
   isLoggedIn: false,
+  userId: null,
   businesses: [
     {
       id: 1,
