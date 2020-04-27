@@ -20,7 +20,7 @@ const userId = (state = null, action) => {
   }
 }
 
-const businesses = (state = null, action) => {
+const businesses = (state = [], action) => {
   switch(action.type) {
     case 'ADDS_BUSINESS':
       return [...state, action.payload]
@@ -31,7 +31,7 @@ const businesses = (state = null, action) => {
   }
 }
 
-const userBusinesses = (state=null, action) => {
+const userBusinesses = (state=[], action) => {
   switch(action.type) {
     case 'GETS_USER_BUSINESSES':
       return action.payload
