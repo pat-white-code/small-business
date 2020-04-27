@@ -14,6 +14,16 @@ export const userLogin = (user) => {
   }
 }
 
+export const getUserBusinesses = id => {
+  return (dispatch) => {
+    axios.get(`/businesses/${id}`)
+      .then(res => {
+        console.log(res)
+        dispatch({type: 'GETS_USER_BUSINESSES', payload:res.data})
+      })
+  }
+}
+
 // export const login = (e) => {
 //   e.preventDefault()
 //   document.cookie = "loggedIn=true;max-age=60*1000";
