@@ -33,4 +33,4 @@ const loginUser = (req, res) => {
   })
 }
 
-export default loginUser;
+module.exports = loginUser;

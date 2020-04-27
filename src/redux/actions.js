@@ -12,21 +12,24 @@ import axios from 'axios';
 
 export const userLogin = (user) => {
   return (dispatch) => {
+    console.log('USER', user);
       // dispatch(beginFetch())
-      axios.post('/', user)
-          .then(json => dispatch({type: 'USER_LOGS_IN', value: user}))
+      axios.post('/users/login', user)
+          .then(json => {
+            console.log(json)
+            dispatch({type: 'USER_LOGS_IN', value: json})})
           // .then(() => dispatch(fetchSuccess()))
   }
 }
 
-export const login = (e) => {
-  e.preventDefault()
-  // window.history.push('/');
-  document.cookie = "loggedIn=true;max-age=60*1000";
-  return {
-    type: 'LOGS_IN'
-  }
-}
+// export const login = (e) => {
+//   e.preventDefault()
+//   // window.history.push('/');
+//   document.cookie = "loggedIn=true;max-age=60*1000";
+//   return {
+//     type: 'LOGS_IN'
+//   }
+// }
 
 export const logout = () => {
   return {

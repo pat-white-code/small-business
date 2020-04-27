@@ -7,14 +7,17 @@ class LoginContainer extends Component {
     password: ''
   }
   handleFieldChange = e => {
+    console.log('STATE', this.state)
     this.setState({
-      [e.id]: e.target.value
+      [e.target.id]: e.target.value
     })
   }
   render() { 
     return (
     <Login 
       handleFieldChange={this.handleFieldChange}
+      userLogin={this.props.userLogin}
+      parentState={this.state}
       /> 
   );
   }

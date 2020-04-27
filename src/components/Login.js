@@ -29,10 +29,10 @@ export default function Login(props) {
   return (
     <Container className={classes.container}>
       <Typography variant='h3'>Login</Typography>
-      <form onSubmit={props.login} className={classes.root} noValidate autoComplete="off">
-        <TextField id="username" label="Username" required />
-        <TextField id="password" label="Password" required />
-        <Button type="submit" className={classes.button} onClick={props.login}>Submit</Button>
+      <form onSubmit={()=> props.userLogin(props.parentState)} className={classes.root} noValidate autoComplete="off">
+        <TextField id="username" label="Username" onChange={props.handleFieldChange} required />
+        <TextField id="password" label="Password" onChange={props.handleFieldChange} required />
+        <Button className={classes.button} onClick={()=>props.userLogin(props.parentState)}>Submit</Button>
       </form>
     </Container>
   );
