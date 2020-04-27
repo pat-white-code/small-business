@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Login from './Login';
+import SignupForm from '../SignupForm';
+import axios from 'axios';
 
-class LoginContainer extends Component {
+export default class Signup extends Component {
   state = { 
     username: '',
     password: ''
@@ -12,15 +13,21 @@ class LoginContainer extends Component {
       [e.target.id]: e.target.value
     })
   }
+
+  createUser = e => {
+    e.preventDefault();
+    console.log(this.state);
+    axios.post('/users', this.state)
+      .then(res => console.log(res))
+  }
+
   render() { 
     return (
-    <Login 
+    <SignupForm 
       handleFieldChange={this.handleFieldChange}
-      userLogin={this.props.userLogin}
+      createUser={this.createUser}
       parentState={this.state}
       /> 
   );
   }
 }
-
-export default LoginContainer;

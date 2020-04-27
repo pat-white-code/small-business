@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddForm from './AddForm';
+import AddForm from '../AddForm';
 
 class Add extends Component {
   state = { 

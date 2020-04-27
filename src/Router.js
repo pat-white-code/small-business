@@ -4,7 +4,7 @@ import Listing from './containers/Listing';
 import Details from './containers/Details';
 import Login from './containers/Login';
 import Add from './containers/Add';
-import Signup from './components/Signup';
+import Signup from './components/classes/Signup';
 import cookie from 'cookie';
 
 const checkAuth = () => {

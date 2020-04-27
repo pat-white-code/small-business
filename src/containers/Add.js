@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Add from '../components/Add';
+import Add from '../components/classes/Add';
 import { addBusiness } from '../redux/actions';
 
 const mapStateToProps = state => {
