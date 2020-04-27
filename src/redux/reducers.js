@@ -31,4 +31,17 @@ const businesses = (state = [], action) => {
   }
 }
 
-export default combineReducers({ isLoggedIn, businesses, userId });
+const userBusinesses = (state=[], action) => {
+  switch(action.type) {
+    case 'GETS_USER_BUSINESSES':
+      return [action.payload]
+    default: return state
+  }
+}
+
+export default combineReducers({ 
+  isLoggedIn, 
+  businesses, 
+  userId, 
+  userBusinesses 
+});
