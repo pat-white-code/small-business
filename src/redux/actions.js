@@ -14,12 +14,24 @@ export const userLogin = (user) => {
   }
 }
 
-export const getUserBusinesses = id => {
+export const getUserBusinesses = userId => {
   return (dispatch) => {
-    axios.get(`/businesses/${id}`)
+    axios.get(`/businesses/${userId}`)
       .then(res => {
         console.log(res)
         dispatch({type: 'GETS_USER_BUSINESSES', payload:res.data})
+      })
+  }
+}
+
+export const addUserBusiness = (business, userId) => {
+  return (dispatch) => {
+    console.log(business);
+    console.log(userId);
+    axios.post(`/businesses/post/${userId}`, business)
+      .then(res => {
+        console.log(res)
+        dispatch({type: 'ADDS_USER_BUSINESS', payoad:business })
       })
   }
 }

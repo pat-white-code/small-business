@@ -7,7 +7,7 @@ class Add extends Component {
     address: '',
     hours: '',
     description: '',
-    id: this.props.businesses.length + 1
+    // id: this.props.businesses.length + 1
   }
   onFormChange = e => {
     this.setState({
@@ -20,8 +20,10 @@ class Add extends Component {
       <AddForm 
         onFormChange={this.onFormChange}
         addBusiness={this.props.addBusiness}
+        addUserBusiness={this.props.addUserBusiness}
         parentState={this.state}
         handleClose={this.props.handleClose}
+        userId={this.props.userId}
         />
     );
   }
