@@ -4,6 +4,7 @@ import { deleteBusiness, getUserBusinesses } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
+    userBusinesses: state.userBusinesses,
     isLoggedIn: state.isLoggedIn,
     businesses: state.businesses,
     userId: state.userId

@@ -30,35 +30,69 @@ export default function Listing(props) {
   });
 
   return (
-    <TableContainer className={classes.container} component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">Hours</TableCell>
-            <TableCell align="center">Address</TableCell>
-            {props.isLoggedIn &&
-              <TableCell align="center">Delete</TableCell>
-            }
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {props.businesses.map((business, index) => (
-            <TableRow key={business.id}>
-              <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
-              <TableCell align="center">{business.description}</TableCell>
-              <TableCell align="center">{business.hours}</TableCell>
-              <TableCell align="center">{business.address}</TableCell>
+    <>
+      <TableContainer className={classes.container} component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="center">Description</TableCell>
+              <TableCell align="center">Hours</TableCell>
+              <TableCell align="center">Address</TableCell>
               {props.isLoggedIn &&
-                <TableCell align="center">
-                  <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>
-                </TableCell>
+                <TableCell align="center">Delete</TableCell>
               }
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {props.businesses.map((business, index) => (
+              <TableRow key={business.id}>
+                <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
+                <TableCell align="center">{business.description}</TableCell>
+                <TableCell align="center">{business.hours}</TableCell>
+                <TableCell align="center">{business.address}</TableCell>
+                {props.isLoggedIn &&
+                  <TableCell align="center">
+                    <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>
+                  </TableCell>
+                }
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <h4>User Businesses</h4>
+      <TableContainer className={classes.container} component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="center">Description</TableCell>
+              <TableCell align="center">Hours</TableCell>
+              <TableCell align="center">Address</TableCell>
+              {props.isLoggedIn &&
+                <TableCell align="center">Delete</TableCell>
+              }
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {props.userBusinesses.map(business => (
+              <TableRow key={business.id}>
+                <TableCell component="th" scope="row"><Link to={`/details/${business.id}`} > {business.name} </Link> </TableCell>
+                <TableCell align="center">{business.description}</TableCell>
+                <TableCell align="center">{business.hours}</TableCell>
+                <TableCell align="center">{business.address}</TableCell>
+                {props.isLoggedIn &&
+                  <TableCell align="center">
+                    <Button >DELETE</Button>
+                  </TableCell>
+                }
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
+
   );
 }
