@@ -6,6 +6,7 @@ const port = process.env.port || 8080;
 
 // IMPORT ROUTERS HERE
 const usersRouter = require('./routes/users');
+const businessesRouter = require('./routes/businesses');
 
 // MIDDLEWARE
 app.use(express.static(path.join(__dirname, 'build')));
@@ -23,6 +24,7 @@ app.get('/ping', function (req, res) {
 
 // MOUNT ROUTERS HERE
 app.use('/users', usersRouter);
+app.use('/businesses', businessesRouter);
 
 // START SERVER
 app.listen(process.env.PORT || 8080, ()=> {
