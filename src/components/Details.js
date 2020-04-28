@@ -8,12 +8,12 @@ const Details = props => {
 
   return (
     <>
-    <h1>{business.name}</h1>
-    <h4>{business.address}</h4>
-    <h4>{business.hours}</h4>
-    <p>{business.description}</p>
-    <p>MAP GOES HERE!</p>
-    <Link to='/'>Back</Link>
+      <h1>{business.name}</h1>
+      <h4>{business.address}</h4>
+      <h4>{business.hours}</h4>
+      <p>{business.description}</p>
+      <p>MAP GOES HERE!</p>
+      <Link to='/'>Back</Link>
     </>
   )
 }
