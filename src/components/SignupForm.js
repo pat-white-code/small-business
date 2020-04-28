@@ -31,7 +31,7 @@ const SignupForm = props => {
       <Typography variant='h3'>Sign Up</Typography>
       <form className={classes.root} noValidate autoComplete="off" onSubmit={props.createUser}>
         <TextField id="username" label="Username" required onChange={props.handleFieldChange} />
-        <TextField id="password" label="Password" required onChange={props.handleFieldChange} />
+        <TextField id="password" label="Password" type='password' required onChange={props.handleFieldChange} />
         <Button type="submit"> Submit </Button>
       </form>
     </Container>

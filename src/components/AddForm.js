@@ -37,7 +37,7 @@ const AddForm = (props) => {
         <TextField id="hours" label="Hours" onChange={props.onFormChange} />
         <TextField id="description" label="Description" onChange={props.onFormChange} />
         <Button type="submit" onClick={()=>props.addBusiness(props.parentState)} className={classes.button} >Save</Button>
-        <Button onClick={()=>props.addUserBusiness(props.parentState, props.userId)} className={classes.button} >Add User Business</Button>
+        <Button type='submit' onClick={()=>props.addUserBusiness(props.parentState, props.userId)} className={classes.button} >Add User Business</Button>
       </form>
     </Container>
   );

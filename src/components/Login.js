@@ -31,7 +31,7 @@ export default function Login(props) {
       <Typography variant='h3'>Login</Typography>
       <form onSubmit={()=> props.userLogin(props.parentState)} className={classes.root} noValidate autoComplete="off">
         <TextField id="username" label="Username" onChange={props.handleFieldChange} required />
-        <TextField id="password" label="Password" onChange={props.handleFieldChange} required />
+        <TextField id="password" label="Password" type='password' onChange={props.handleFieldChange} required />
         <Button className={classes.button} onClick={()=>props.userLogin(props.parentState)}>Submit</Button>
       </form>
     </Container>
