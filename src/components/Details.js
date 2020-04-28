@@ -14,7 +14,14 @@ const Details = props => {
       <h4>{business.address}</h4>
       <h4>{business.hours}</h4>
       <p>{business.description}</p>
-      <p>MAP GOES HERE!</p>
+      <iframe
+        title='google map'
+        width="600"
+        height="450"
+        frameborder="0" style={{border: 0}}
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}
+        &q=Space+Needle,Seattle+WA`} allowfullscreen>
+      </iframe>
       <Link to='/'>Back</Link>
     </Container>
   )
