@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Details = props => {
   let id = props.match.params.id;
   console.log('props.match.params.id:__ ',id)
-  let business = props.businesses.filter(business => business.id === parseInt(id))[0]
+  let business = props.userBusinesses.filter(business => business.id === parseInt(id))[0]
 
   return (
     <>

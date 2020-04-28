@@ -18,6 +18,8 @@ const useStyles = makeStyles({
   container: {
     paddingTop: 30,
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     justifyContent: 'center'
   }
 });
@@ -61,8 +63,8 @@ export default function Listing(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <h4>User Businesses</h4>
       <TableContainer className={classes.container} component={Paper}>
+        <h4>User Businesses</h4>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
