@@ -99,7 +99,7 @@ export default function Listing(props) {
                 <TableCell align="center">{business.address}</TableCell>
                 {props.isLoggedIn &&
                   <TableCell align="center">
-                    <Button >DELETE</Button>
+                    <Button onClick={()=>props.deleteUserBusiness(business.id)}>DELETE</Button>
                   </TableCell>
                 }
               </TableRow>

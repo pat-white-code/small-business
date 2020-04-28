@@ -31,7 +31,17 @@ export const addUserBusiness = (business, userId) => {
     axios.post(`/businesses/post/${userId}`, business)
       .then(res => {
         console.log(res)
-        dispatch({type: 'ADDS_USER_BUSINESS', payoad:business })
+        dispatch({type: 'ADDS_USER_BUSINESS'})
+      })
+  }
+}
+
+export const deleteUserBusiness = businessId => {
+  return (dispatch) => {
+    axios.delete(`/businesses/delete/${businessId}`)
+      .then(res => {
+        console.log(res)
+        dispatch({type: 'DELETES_USER_BUSINESS'})
       })
   }
 }

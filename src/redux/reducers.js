@@ -35,6 +35,10 @@ const userBusinesses = (state=[], action) => {
   switch(action.type) {
     case 'GETS_USER_BUSINESSES':
       return action.payload
+    case 'ADDS_USER_BUSINESS':
+      return state;
+    case 'DELETES_USER_BUSINESS':
+      return state;
     default: return state
   }
 }
