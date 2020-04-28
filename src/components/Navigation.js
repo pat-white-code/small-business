@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
-import Modal from './Modal';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar(props) {
     const classes = useStyles();
 
-    const fetchPing = () => {
-        fetch('/ping')
-            .then(res => res.text())
-            .then(text => console.log(text));
-    }
+    // const fetchPing = () => {
+    //     fetch('/ping')
+    //         .then(res => res.text())
+    //         .then(text => console.log(text));
+    // }
 
     return (
         <div className={classes.root}>
@@ -44,8 +43,7 @@ export default function ButtonAppBar(props) {
                         props.isLoggedIn && 
                             <Button color="inherit"><Link to="/add">Add</Link></Button>
                     }
-                    <Modal />
-                    <Button onClick={fetchPing}>Fetch</Button>
+                    {/* FOR TESTING SERVER CONNECTION <Button onClick={fetchPing}>Fetch</Button> */}
                     <Link to="/"><Button color="inherit">Listing</Button></Link>
                     {
                         props.isLoggedIn ? (
