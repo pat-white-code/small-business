@@ -30,7 +30,7 @@ const AddForm = (props) => {
     <Container className={classes.container}>
       <Typography variant='h3'>Add Business</Typography>
       <form 
-        className={classes.root} noValidate autoComplete="off" onSubmit={(e)=>{e.preventDefault(); props.addUserBusiness(props.parentState, props.userId); props.handleClose()}} >
+        className={classes.root} noValidate autoComplete="off" onSubmit={(e)=>{e.preventDefault(); props.addBusiness(props.parentState); props.addUserBusiness(props.parentState, props.userId); props.handleClose()}} >
 
         <TextField id="name" label="Name" onChange={props.onFormChange} />
         <TextField id="address" label="Address" onChange={props.onFormChange} onBlur={props.formUrl} />
@@ -44,10 +44,10 @@ const AddForm = (props) => {
           src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
           ${props.mapUrl}`} allowFullScreen>
       </iframe>
-        {/* <Button type="submit" onClick={(e)=>{e.preventDefault(); props.addBusiness(props.parentState)}} className={classes.button} >Save</Button> */}
         <Button type='submit' 
                 className={classes.button}
-                onClick={(e)=>{e.preventDefault(); props.addUserBusiness(props.parentState, props.userId); props.handleClose()}}>
+                
+                  >
             Add User Business
         </Button>
       </form>
