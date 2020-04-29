@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 
 const tempDetails = props => {
   let id = props.match.params.id;
-  let business = props.businesses.filter(business => business.id === parseInt(id))[0]
+  let business = props.businesses.filter(business => business.tempId === parseInt(id))[0]
   let mapUrl = '&q=' + business.address.replace(/ /g, '+') 
 
   return (

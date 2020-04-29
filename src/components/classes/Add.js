@@ -7,8 +7,8 @@ class Add extends Component {
     address: '',
     hours: '',
     description: '',
-    mapUrl: '&q=Austin,+TX'
-    // id: this.props.businesses.length + 1
+    mapUrl: '&q=Austin,+TX',
+    tempId: this.props.businesses.length + 1
   }
   onFormChange = e => {
     this.setState({
