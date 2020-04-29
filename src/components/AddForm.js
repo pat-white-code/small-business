@@ -40,9 +40,9 @@ const AddForm = (props) => {
           title='google map'
           width="200"
           height="200"
-          frameborder="0" style={{border: 0}}
+          frameBorder="0" style={{border: 0}}
           src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
-          ${props.mapUrl}`} allowfullscreen>
+          ${props.mapUrl}`} allowFullScreen>
       </iframe>
         <Button type="submit" onClick={(e)=>{e.preventDefault(); props.addBusiness(props.parentState)}} className={classes.button} >Save</Button>
         <Button type='submit' 

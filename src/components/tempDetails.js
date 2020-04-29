@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 
 
-const Details = props => {
+const tempDetails = props => {
   let id = props.match.params.id;
-  console.log('props.match.params.id: ',id)
-  let business = props.userBusinesses.filter(business => business.id === parseInt(id))[0] 
+  console.log('ID', id)
+  console.log('BUSINESSES...', props.businesses);
+  let business = props.businesses.filter(business => business.id === parseInt(id))[0]
+    // let business = props.businesses.filter(business => business.name === "Radio Coffee & Beer")[0];
+  console.log('BUSINESS', business)
 
-  let mapUrl = '&q=' + business.address.replace(/ /g, '+')
+  let mapUrl = '&q=' + business.address.replace(/ /g, '+') 
 
   return (
     <Container fixed>
@@ -29,4 +32,4 @@ const Details = props => {
   )
 }
 
-export default Details
+export default tempDetails

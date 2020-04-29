@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import Listing from './containers/Listing';
 import Details from './containers/Details';
+import tempDetails from './containers/tempDetails';
 import Login from './containers/Login';
 import Add from './containers/Add';
 import Signup from './components/classes/Signup';
@@ -28,6 +29,7 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Listing} />
             <Route path="/details/:id" component={Details} />
+            <Route path="/temp-details/:id" component={tempDetails} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <ProtectedRoute path="/add" component={Add} />
