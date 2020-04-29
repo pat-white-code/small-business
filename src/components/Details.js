@@ -5,8 +5,11 @@ import Container from '@material-ui/core/Container';
 
 const Details = props => {
   let id = props.match.params.id;
-  console.log('props.match.params.id:__ ',id)
-  let business = props.userBusinesses.filter(business => business.id === parseInt(id))[0]
+  console.log('props.match.params.id: ',id)
+  let business = props.userBusinesses.filter(business => business.id === parseInt(id))[0] 
+                || 
+                props.businesses.filter(business => business.id === parseInt(id)[0])
+
   let mapUrl = '&q=' + business.name.replace(/ /g, '+')
 
   return (
@@ -19,9 +22,9 @@ const Details = props => {
         title='google map'
         width="600"
         height="450"
-        frameborder="0" style={{border: 0}}
-        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
-        ${mapUrl}`} allowfullscreen>
+        frameBorder="0" style={{border: 0}}
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}
+        ${mapUrl}`} allowFullscreen>
       </iframe>
       <Link to='/'>Back</Link>
     </Container>

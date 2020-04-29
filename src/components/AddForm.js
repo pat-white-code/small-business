@@ -44,8 +44,12 @@ const AddForm = (props) => {
           src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
           ${props.mapUrl}`} allowfullscreen>
       </iframe>
-        <Button type="submit" onClick={()=>props.addBusiness(props.parentState)} className={classes.button} >Save</Button>
-        <Button type='submit' onClick={()=>props.addUserBusiness(props.parentState, props.userId)} className={classes.button} >Add User Business</Button>
+        <Button type="submit" onClick={(e)=>{e.preventDefault(); props.addBusiness(props.parentState)}} className={classes.button} >Save</Button>
+        <Button type='submit' 
+                className={classes.button}
+                onClick={(e)=>{e.preventDefault(); props.addUserBusiness(props.parentState, props.userId)}}>
+            Add User Business
+        </Button>
       </form>
     </Container>
   );
