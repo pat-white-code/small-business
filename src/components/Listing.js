@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -27,13 +27,13 @@ const useStyles = makeStyles({
 
 export default function Listing(props) {
   const classes = useStyles();
+  const { dbUpdatedAt } = props;
 
-  // const [userBusinesses, setUserBusinesses] = useState(props.userBusinesses)
-
-
-  // useEffect(() => {
-  //   props.getUserBusinesses(props.userId)
-  // }, []);
+  useEffect(() => {
+    props.getUserBusinesses(props.userId)
+    // https://github.com/facebook/create-react-app/issues/6880
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dbUpdatedAt]);
 
 
   return (

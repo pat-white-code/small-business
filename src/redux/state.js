@@ -1,4 +1,5 @@
 const state = {
+  dbUpdatedAt: null,
   userBusinesses: [],
   isLoggedIn: false,
   userId: null,

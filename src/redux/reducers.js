@@ -34,11 +34,21 @@ const businesses = (state = [], action) => {
 const userBusinesses = (state=[], action) => {
   switch(action.type) {
     case 'GETS_USER_BUSINESSES':
-      return action.payload
+      return action.payload;
+    default: return state
+  }
+}
+
+const dbUpdatedAt = (state=null, action) =>{
+  let newState = {...state};
+  let timestamp = new Date()
+  switch(action.type) {
     case 'ADDS_USER_BUSINESS':
-      return state;
+      newState.dbUpdatedAt = timestamp
+      return newState;
     case 'DELETES_USER_BUSINESS':
-      return state;
+      newState.dbUpdatedAt = timestamp
+      return newState;
     default: return state
   }
 }
@@ -47,5 +57,6 @@ export default combineReducers({
   isLoggedIn, 
   businesses, 
   userId, 
-  userBusinesses 
+  userBusinesses,
+  dbUpdatedAt 
 });

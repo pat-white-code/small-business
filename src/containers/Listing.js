@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     userBusinesses: state.userBusinesses,
     isLoggedIn: state.isLoggedIn,
     businesses: state.businesses,
-    userId: state.userId
+    userId: state.userId,
+    dbUpdatedAt: state.dbUpdatedAt
   }
 }
 

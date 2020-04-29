@@ -8,17 +8,15 @@ import React, { Component } from 'react'
 //     userId: state.userId
 class classListing extends Component {
   state = {}
-  componentDidMount(){
-    this.props.getUserBusinesses(this.props.userId)
-  }
+  // componentDidMount(){
+  //   this.props.getUserBusinesses(this.props.userId)
+  // }
 
-  componentDidUpdate(prevProps){
-    console.log('PREVPROPS', prevProps.userBusinesses.length)
-    console.log('PROPS', this.props.userBusinesses.length)
-    if(prevProps.userBusinesses.length !== this.props.userBusinesses.length) {
-      this.props.getUserBusinesses(this.props.userId)
-    }
-  }
+  // componentDidUpdate(prevProps){
+  //   if(prevProps.dbUpdatedAt !== this.props.dbUpdatedAt) {
+  //     this.props.getUserBusinesses(this.props.userId)
+  //   }
+  // }
 
   render() { 
     return ( 
@@ -30,6 +28,7 @@ class classListing extends Component {
         deleteBusiness={this.props.deleteBusiness}
         getUserBusinesses={this.props.getUserBusinesses}
         deleteUserBusiness={this.props.deleteUserBusiness}
+        dbUpdatedAt={this.props.dbUpdatedAt}
       />
     );
   }
