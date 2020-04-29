@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import Listing from '../components/Listing';
+// import Listing from '../components/Listing';
+import classListing from '../components/classes/classListing';
 import { deleteBusiness, getUserBusinesses, deleteUserBusiness } from '../redux/actions';
 
 const mapStateToProps = state => {
@@ -19,4 +20,5 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Listing)
+// export default connect(mapStateToProps, mapDispatchToProps)(Listing)
+export default connect(mapStateToProps, mapDispatchToProps)(classListing)
