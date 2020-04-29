@@ -33,9 +33,17 @@ const AddForm = (props) => {
         className={classes.root} noValidate autoComplete="off" onSubmit={props.handleClose} >
 
         <TextField id="name" label="Name" onChange={props.onFormChange} />
-        <TextField id="address" label="Address" onChange={props.onFormChange} />
+        <TextField id="address" label="Address" onChange={props.onFormChange} onBlur={props.formUrl} />
         <TextField id="hours" label="Hours" onChange={props.onFormChange} />
         <TextField id="description" label="Description" onChange={props.onFormChange} />
+        <iframe
+          title='google map'
+          width="200"
+          height="200"
+          frameborder="0" style={{border: 0}}
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
+          ${props.mapUrl}`} allowfullscreen>
+      </iframe>
         <Button type="submit" onClick={()=>props.addBusiness(props.parentState)} className={classes.button} >Save</Button>
         <Button type='submit' onClick={()=>props.addUserBusiness(props.parentState, props.userId)} className={classes.button} >Add User Business</Button>
       </form>
