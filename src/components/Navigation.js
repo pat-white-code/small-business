@@ -49,7 +49,10 @@ export default function ButtonAppBar(props) {
                         props.isLoggedIn ? (
                                     <Link to='/login'><Button color="inherit" onClick={props.logout}>logout</Button></Link>
                         ) : (
-                            <Link to="/login"><Button color="inherit">Login</Button></Link>
+                            <>
+                                <Link to="/login"><Button color="inherit">Login</Button></Link>
+                                <Link to="/signup"><Button color="inherit">Sign Up</Button></Link>
+                            </>
                         )
                     }
                 </Toolbar>

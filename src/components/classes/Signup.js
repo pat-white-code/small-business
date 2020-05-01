@@ -18,7 +18,10 @@ export default class Signup extends Component {
     e.preventDefault();
     console.log(this.state);
     axios.post('/users', this.state)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        this.props.initialLogin(res.data.id)
+      })
   }
 
   render() { 

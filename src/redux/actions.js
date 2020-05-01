@@ -1,5 +1,14 @@
 import axios from 'axios';
 
+export const initialLogin = userId => {
+  return dispatch => {
+    console.log('USER ID:', userId)
+    document.cookie = "loggedIn=true;max-age=60*1000"
+    dispatch({type: 'LOGS_IN'})
+    dispatch({type: 'GETS_USER_ID', payload: userId})
+  }
+}
+
 export const userLogin = (user) => {
   return (dispatch) => {
     console.log('USER', user);
@@ -8,7 +17,7 @@ export const userLogin = (user) => {
             console.log(json)
             document.cookie = "loggedIn=true;max-age=60*1000"
             dispatch({type: 'LOGS_IN'})
-            dispatch({type: 'GETS_USER_ID', payload: json.data})
+            dispatch({type: 'GETS_USER_ID', payload: json.data.id})
             dispatch(getUserBusinesses(json.data.id))})
   }
 }

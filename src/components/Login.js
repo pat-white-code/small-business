@@ -36,7 +36,6 @@ export default function Login(props) {
             onSubmit={()=> {
               props.userLogin(props.parentState);
               history.push('/')
-              
               }}>
         <TextField id="username" label="Username" onChange={props.handleFieldChange} required />
         <TextField id="password" label="Password" type='password' onChange={props.handleFieldChange} required />

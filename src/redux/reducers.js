@@ -15,7 +15,7 @@ const userId = (state = null, action) => {
   let newState = {...state}
   switch(action.type) {
     case 'GETS_USER_ID':
-      return newState.userId = action.payload.id
+      return newState.userId = action.payload
     default: return state
   }
 }
