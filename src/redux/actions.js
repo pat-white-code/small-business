@@ -8,7 +8,8 @@ export const userLogin = (user) => {
             console.log(json)
             document.cookie = "loggedIn=true;max-age=60*1000"
             dispatch({type: 'LOGS_IN'})
-            dispatch({type: 'GETS_USER_ID', payload: json.data})})
+            dispatch({type: 'GETS_USER_ID', payload: json.data})
+            dispatch(getUserBusinesses(json.data.id))})
   }
 }
 
