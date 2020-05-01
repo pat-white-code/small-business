@@ -14,13 +14,14 @@ export default class Signup extends Component {
     })
   }
 
-  createUser = e => {
+  createUser = () => {
     console.log(this.state);
     axios.post('/users', this.state)
       .then(res => {
         console.log(res)
         this.props.initialLogin(res.data.id)
       })
+      .catch(err => console.log(err))
   }
 
   render() { 

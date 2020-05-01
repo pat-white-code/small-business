@@ -1,67 +1,25 @@
 import axios from 'axios';
 
-
-export const initialLogin = userId => {
-  return dispatch => {
-    console.log('USER ID:', userId);
-    document.cookie = "loggedIn=true;max-age=60*1000";
-    dispatch({type: 'LOGS_IN'});
-    dispatch({type: 'GETS_USER_ID', payload: userId});
-  }
+// ACTION CREATORS HERE
+const isLoggedIn = () => {
+  return {type: 'LOGS_IN'}
 }
 
-export const userLogin = (user) => {
-  return (dispatch) => {
-    console.log('USER', user);
-      axios.post('/users/login', user)
-          .then(json => {
-            console.log(json)
-            document.cookie = "loggedIn=true;max-age=60*1000"
-            dispatch({type: 'LOGS_IN'})
-            dispatch({type: 'GETS_USER_ID', payload: json.data.id})
-            dispatch(getUserBusinesses(json.data.id))})
-  }
+const getsUserId = (userId) => {
+  return {type: 'GETS_USER_ID', payload: userId}
 }
 
-export const getUserBusinesses = userId => {
-  return (dispatch) => {
-    axios.get(`/businesses/${userId}`)
-      .then(res => {
-        console.log(res)
-        dispatch({type: 'GETS_USER_BUSINESSES', payload:res.data})
-      })
-  }
+const getsUserBusinesses = (businesses) => {
+  return {type: 'GETS_USER_BUSINESSES', payload: businesses}
 }
 
-export const addUserBusiness = (business, userId) => {
-  return (dispatch) => {
-    console.log(business);
-    console.log(userId);
-    axios.post(`/businesses/post/${userId}`, business)
-      .then(res => {
-        console.log(res)
-        dispatch({type: 'ADDS_USER_BUSINESS'})
-      })
-  }
+const addsUserBusiness = () => {
+  return {type: 'ADDS_USER_BUSINESS'}
 }
 
-export const deleteUserBusiness = businessId => {
-  return (dispatch) => {
-    axios.delete(`/businesses/delete/${businessId}`)
-      .then(res => {
-        console.log(res)
-        dispatch({type: 'DELETES_USER_BUSINESS'})
-      })
-  }
+const deletesUserBusiness = () => {
+  return {type: 'DELETES_USER_BUSINESS'}
 }
-
-// export const login = (e) => {
-//   e.preventDefault()
-//   document.cookie = "loggedIn=true;max-age=60*1000";
-//   return {
-//     type: 'LOGS_IN'
-//   }
-// }
 
 export const logout = () => {
   return {
@@ -82,3 +40,70 @@ export const deleteBusiness = business => {
     payload: business
   }
 }
+
+// THUNK FUNCTIONS HERE
+
+export const initialLogin = userId => {
+  return dispatch => {
+    console.log('USER ID:', userId);
+    document.cookie = "loggedIn=true;max-age=60*1000";
+    dispatch(isLoggedIn());
+    dispatch(getsUserId(userId));
+  }
+}
+
+export const userLogin = (user) => {
+  return (dispatch) => {
+    console.log('USER', user);
+      axios.post('/users/login', user)
+          .then(json => {
+            let userId = json.data.id
+            console.log(json)
+            document.cookie = "loggedIn=true;max-age=60*1000"
+            dispatch(isLoggedIn())
+            dispatch(getsUserId(userId))
+            dispatch(getUserBusinesses(userId))})
+  }
+}
+
+export const getUserBusinesses = userId => {
+  return (dispatch) => {
+    axios.get(`/businesses/${userId}`)
+      .then(res => {
+        console.log(res)
+        let businesses = res.data
+        dispatch(getsUserBusinesses(businesses))
+      })
+  }
+}
+
+export const addUserBusiness = (business, userId) => {
+  return (dispatch) => {
+    console.log(business);
+    console.log(userId);
+    axios.post(`/businesses/post/${userId}`, business)
+      .then(res => {
+        console.log(res)
+        dispatch(addsUserBusiness())
+      })
+  }
+}
+
+export const deleteUserBusiness = businessId => {
+  return (dispatch) => {
+    axios.delete(`/businesses/delete/${businessId}`)
+      .then(res => {
+        console.log(res)
+        dispatch(deletesUserBusiness())
+      })
+  }
+}
+
+// DUMMY LOGIN FROM INITIAL BENCHMARKS
+// export const login = (e) => {
+//   e.preventDefault()
+//   document.cookie = "loggedIn=true;max-age=60*1000";
+//   return {
+//     type: 'LOGS_IN'
+//   }
+// }
