@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Container, Button, Typography } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,11 +27,12 @@ const useStyles = makeStyles((theme) => ({
 
 const SignupForm = props => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <Container className={classes.container}>
       <Typography variant='h3'>Sign Up</Typography>
-      <form className={classes.root} noValidate autoComplete="off" onSubmit={props.createUser}>
+      <form className={classes.root} noValidate autoComplete="off" onSubmit={(e)=>{e.preventDefault();props.createUser(); history.push('/')}}>
         <TextField id="username" label="Username" required onChange={props.handleFieldChange} />
         <TextField id="password" label="Password" type='password' required onChange={props.handleFieldChange} />
         <Button type="submit"> Submit </Button>

@@ -15,7 +15,6 @@ export default class Signup extends Component {
   }
 
   createUser = e => {
-    e.preventDefault();
     console.log(this.state);
     axios.post('/users', this.state)
       .then(res => {
