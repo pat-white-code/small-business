@@ -49,6 +49,9 @@ const dbUpdatedAt = (state=null, action) =>{
     case 'DELETES_USER_BUSINESS':
       newState.dbUpdatedAt = timestamp
       return newState;
+    case 'EDITS_USER_BUSINESS':
+      newState.dbUpdatedAt = timestamp
+      return newState;
     default: return state
   }
 }

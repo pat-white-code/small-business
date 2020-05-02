@@ -17,6 +17,10 @@ const addsUserBusiness = () => {
   return {type: 'ADDS_USER_BUSINESS'}
 }
 
+const editsUserBusiness = () => {
+  return {type: 'EDITS_USER_BUSINESS'}
+}
+
 const deletesUserBusiness = () => {
   return {type: 'DELETES_USER_BUSINESS'}
 }
@@ -85,6 +89,17 @@ export const addUserBusiness = (business, userId) => {
       .then(res => {
         console.log(res)
         dispatch(addsUserBusiness())
+      })
+  }
+}
+
+export const editUserBusiness = (business) => {
+  return (dispatch) => {
+    console.log('BUSINESS', business);
+    axios.put(`/businesses/update/${business.id}`, business)
+      .then(res => {
+        console.log(res)
+        dispatch(editsUserBusiness())
       })
   }
 }

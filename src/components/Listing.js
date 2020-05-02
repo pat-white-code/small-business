@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
+import EditModal from './EditModal';
 
 const useStyles = makeStyles({
   table: {
@@ -58,7 +59,10 @@ export default function Listing(props) {
               <TableCell align="center">Hours</TableCell>
               <TableCell align="center">Address</TableCell>
               {props.isLoggedIn &&
-                <TableCell align="center">Delete</TableCell>
+                <>
+                  <TableCell align="center">Delete</TableCell>
+                  <TableCell align="center">Edit</TableCell>
+                </>
               }
             </TableRow>
           </TableHead>
@@ -70,9 +74,11 @@ export default function Listing(props) {
                 <TableCell align="center">{business.hours}</TableCell>
                 <TableCell align="center">{business.address}</TableCell>
                 {props.isLoggedIn &&
-                  <TableCell align="center">
-                    <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>
-                  </TableCell>
+                  <>
+                    <TableCell align="center">
+                      <Button onClick={()=>props.deleteBusiness(business)}>DELETE</Button>
+                    </TableCell>
+                  </>
                 }
               </TableRow>
             ))}
@@ -101,9 +107,20 @@ export default function Listing(props) {
                 <TableCell align="center">{business.hours}</TableCell>
                 <TableCell align="center">{business.address}</TableCell>
                 {props.isLoggedIn &&
-                  <TableCell align="center">
-                    <Button onClick={()=>props.deleteUserBusiness(business.id)}>DELETE</Button>
-                  </TableCell>
+                  <>
+                    <TableCell align="center">
+                      <Button onClick={()=>props.deleteUserBusiness(business.id)}>DELETE</Button>
+                    </TableCell>
+                    <TableCell align="center">
+                        <EditModal 
+                          name={business.name}
+                          address={business.address}
+                          hours={business.hours}
+                          description={business.description}
+                          id={business.id}
+                        />
+                    </TableCell>
+                  </>
                 }
               </TableRow>
             ))}
