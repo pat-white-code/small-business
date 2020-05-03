@@ -59,10 +59,7 @@ export default function Listing(props) {
               <TableCell align="center">Hours</TableCell>
               <TableCell align="center">Address</TableCell>
               {props.isLoggedIn &&
-                <>
-                  <TableCell align="center">Delete</TableCell>
-                  <TableCell align="center">Edit</TableCell>
-                </>
+                <TableCell align="center">Delete</TableCell>
               }
             </TableRow>
           </TableHead>
@@ -95,7 +92,10 @@ export default function Listing(props) {
               <TableCell align="center">Hours</TableCell>
               <TableCell align="center">Address</TableCell>
               {props.isLoggedIn &&
-                <TableCell align="center">Delete</TableCell>
+                <>
+                  <TableCell align="center">Delete</TableCell>
+                  <TableCell align="center">Edit</TableCell>
+                </>
               }
             </TableRow>
           </TableHead>
