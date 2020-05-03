@@ -82,8 +82,9 @@ export default function Listing(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <TableContainer className={classes.container} component={Paper}>
-        <h4>User Businesses</h4>
+      {props.isLoggedIn && 
+        <TableContainer className={classes.container} component={Paper}>
+        <h4>Your Businesses</h4>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -124,6 +125,7 @@ export default function Listing(props) {
           </TableBody>
         </Table>
       </TableContainer>
+      }
     </>
 
   );
