@@ -15,7 +15,9 @@ const userId = (state = null, action) => {
   let newState = {...state}
   switch(action.type) {
     case 'GETS_USER_ID':
-      return newState.userId = action.payload
+      return newState.userId = action.payload;
+    case 'LOGS_OUT':
+      return newState.userId = null;
     default: return state
   }
 }
@@ -35,6 +37,8 @@ const userBusinesses = (state=[], action) => {
   switch(action.type) {
     case 'GETS_USER_BUSINESSES':
       return action.payload;
+    case 'LOGS_OUT':
+      return [];
     default: return state
   }
 }
