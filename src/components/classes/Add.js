@@ -16,6 +16,17 @@ class Add extends Component {
     })
   }
 
+  clearState = () => {
+    this.setState({
+      name: '',
+      address: '',
+      hours: '',
+      description: '',
+      mapUrl: '&q=Austin,+TX',
+      tempId: this.props.businesses.length + 1
+    })
+  }
+
   formUrl = e => {
     let string = e.target.value;
     let url = '&q=' + string.replace(/ /g, '+')
@@ -34,6 +45,7 @@ class Add extends Component {
         userId={this.props.userId}
         formUrl={this.formUrl}
         mapUrl={this.state.mapUrl}
+        clearState={this.clearState}
         />
     );
   }
