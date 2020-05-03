@@ -113,10 +113,7 @@ export default function Listing(props) {
                     </TableCell>
                     <TableCell align="center">
                         <EditModal 
-                          name={business.name}
-                          address={business.address}
-                          hours={business.hours}
-                          description={business.description}
+                          
                           id={business.id}
                         />
                     </TableCell>
@@ -131,3 +128,8 @@ export default function Listing(props) {
 
   );
 }
+
+// name={business.name}
+//                           address={business.address}
+//                           hours={business.hours}
+//                           description={business.description}

@@ -37,20 +37,14 @@ const EditForm = (props) => {
         <TextField id="address" label="Address" value={address} onChange={props.onFormChange} onBlur={props.formUrl} />
         <TextField id="hours" label="Hours" value={hours} onChange={props.onFormChange} />
         <TextField id="description" label="Description" value={description} onChange={props.onFormChange} />
-        {/* <iframe
-          title='google map'
-          width="200"
-          height="200"
-          frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs
-          ${props.mapUrl}`} allowFullScreen>
-      </iframe> */}
-        <Button type='submit' 
+
+        <Button type='submit' color="secondary" variant="contained"
                 className={classes.button}
                 
                   >
-            Add User Business
+            Save
         </Button>
+        <Button className={classes.button} onClick={props.handleClose}>Cancel</Button>
       </form>
     </Container>
   );

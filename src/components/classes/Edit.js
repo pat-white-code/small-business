@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import EditForm from '../EditForm';
 
 class Edit extends Component {
-  state = { 
-    name: this.props.name,
-    address: this.props.address,
-    description: this.props.description,
-    hours: this.props.hours,
-    id: this.props.id
+  business = this.props.userBusinesses.filter(business => business.id === parseInt(this.props.id))[0];
+  state = {
+    name: this.business.name,
+    address: this.business.address,
+    description: this.business.description,
+    hours: this.business.hours,
+    id: this.business.id
   }
+  // state = {name, address, description, hours, id}
+  // state = { 
+  //   name: this.props.name,
+  //   address: this.props.address,
+  //   description: this.props.description,
+  //   hours: this.props.hours,
+  //   id: this.props.id
+  // }
 
   onFormChange = e => {
     this.setState({
