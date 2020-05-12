@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addBusiness: (business)=> dispatch(addBusiness(business)),
+    addBusiness: (business) => dispatch(addBusiness(business)),
     addUserBusiness: (business, userId) => dispatch(addUserBusiness(business, userId))
   }
 }
